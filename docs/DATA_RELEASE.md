@@ -33,6 +33,11 @@ A Release contém o arquivo `.tar.gz`, seu `.sha256` e um manifesto JSON. O scri
 `scripts/restore_release_data.ps1` confere SHA-256 antes da extração e aborta se o
 download estiver incompleto ou alterado.
 
+Na cópia destinada à Release, `source_artifact_root` dos manifestos ERA5 é
+normalizado para o caminho relativo `data/bronze/era5/arco_raw`. Essa alteração
+remove a dependência do diretório do computador de origem; os NetCDFs, registros
+de fonte, checksums e artefatos canônicos locais não são modificados.
+
 Dados de terceiros mantêm suas fontes, natureza e checksums nos manifestos do
 projeto. Publicar este snapshot não muda as licenças das fontes nem concede uma
 licença para o código; a licença geral do repositório continua pendente.
