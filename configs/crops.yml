@@ -1,0 +1,87 @@
+config_version: "1.0.0"
+taxonomy:
+  - crop_id: 1
+    canonical_name: soja
+    nome_ptbr: Soja
+    categoria: graos
+    temporaria_permanente: temporaria
+    cycle_days_min: 100
+    cycle_days_max: 160
+    active: true
+    implementation_status: pilot
+    aliases:
+      common: [soja, soja em grao, soja em grãos]
+      ibge: [Soja (em grão)]
+      conab: [SOJA]
+      zarc: [soja]
+  - crop_id: 2
+    canonical_name: milho
+    nome_ptbr: Milho
+    categoria: graos
+    temporaria_permanente: temporaria
+    cycle_days_min: 90
+    cycle_days_max: 180
+    active: false
+    implementation_status: planned
+    aliases:
+      common: [milho, milho em grao, milho em grãos]
+      ibge: [Milho (em grão)]
+      conab: [MILHO]
+      zarc: [milho]
+  - crop_id: 3
+    canonical_name: feijao
+    nome_ptbr: Feijão
+    categoria: graos
+    temporaria_permanente: temporaria
+    cycle_days_min: 70
+    cycle_days_max: 120
+    active: false
+    implementation_status: planned
+    aliases:
+      common: [feijao, feijão]
+      ibge: [Feijão (em grão)]
+      conab: [FEIJAO, FEIJÃO]
+      zarc: [feijao, feijão]
+  - crop_id: 4
+    canonical_name: arroz
+    nome_ptbr: Arroz
+    categoria: graos
+    temporaria_permanente: temporaria
+    cycle_days_min: 100
+    cycle_days_max: 150
+    active: false
+    implementation_status: planned
+    aliases:
+      common: [arroz, arroz em casca]
+      ibge: [Arroz (em casca)]
+      conab: [ARROZ]
+      zarc: [arroz]
+  - crop_id: 5
+    canonical_name: trigo
+    nome_ptbr: Trigo
+    categoria: graos
+    temporaria_permanente: temporaria
+    cycle_days_min: 100
+    cycle_days_max: 150
+    active: false
+    implementation_status: planned
+    aliases:
+      common: [trigo, trigo em grao, trigo em grãos]
+      ibge: [Trigo (em grão)]
+      conab: [TRIGO]
+      zarc: [trigo]
+  - crop_id: 6
+    canonical_name: algodao
+    nome_ptbr: Algodão
+    categoria: fibras
+    temporaria_permanente: temporaria
+    cycle_days_min: 150
+    cycle_days_max: 220
+    active: false
+    implementation_status: planned
+    aliases:
+      common: [algodao, algodão, algodao herbaceo, algodão herbáceo]
+      ibge: [Algodão herbáceo (em caroço)]
+      conab: [ALGODAO, ALGODÃO]
+      zarc: [algodao, algodão]
+

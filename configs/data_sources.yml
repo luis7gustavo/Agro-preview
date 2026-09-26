@@ -1,0 +1,99 @@
+config_version: "1.0.0"
+# URLs de descoberta registradas no documento tecnico. Cada adapter deve verificar
+# formato, licenca e endpoint vigente antes da primeira ingestao automatizada.
+sources:
+  ibge_pam:
+    authority: IBGE
+    discovery_url: https://www.ibge.gov.br/estatisticas/economicas/agricultura-e-pecuaria/9117-producao-agricola-municipal-culturas-temporarias-e-permanentes.html
+    api_base_url: https://apisidra.ibge.gov.br/values
+    table_id: 5457
+    periodicity: annual
+    verified_at: "2026-08-20"
+    domain: production
+    priority: core
+    status: verified
+  ibge_locations:
+    authority: IBGE
+    discovery_url: https://servicodados.ibge.gov.br/api/docs/localidades
+    api_base_url: https://servicodados.ibge.gov.br/api/v1/localidades
+    mesh_api_base_url: https://servicodados.ibge.gov.br/api/v3/malhas
+    periodicity: irregular
+    verified_at: "2026-08-20"
+    domain: territorial
+    priority: core
+    status: verified
+  conab_costs:
+    authority: CONAB
+    discovery_url: https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/custos-de-producao/planilhas-de-custos-de-producao
+    catalog_api_url: https://barramento.conab.gov.br/portal-informacao-api/api/v1/download?page=0&size=10000
+    download_url: https://portaldeinformacoes.conab.gov.br/downloads/arquivos/CustoProducao.txt
+    periodicity: irregular
+    verified_at: "2026-08-20"
+    domain: economics
+    priority: core
+    status: verified
+  conab_prices:
+    authority: CONAB
+    discovery_url: https://www.gov.br/conab/pt-br/atuacao/informacoes-agropecuarias/precos-agropecuarios
+    catalog_api_url: https://barramento.conab.gov.br/portal-informacao-api/api/v1/download?page=0&size=10000
+    municipal_download_url: https://portaldeinformacoes.conab.gov.br/downloads/arquivos/PrecosMensalMunicipio.txt
+    state_download_url: https://portaldeinformacoes.conab.gov.br/downloads/arquivos/PrecosMensalUF.txt
+    unit: BRL/kg
+    periodicity: monthly
+    verified_at: "2026-08-20"
+    domain: economics
+    priority: core
+    status: verified
+  mapa_zarc:
+    authority: MAPA
+    discovery_url: https://dados.agricultura.gov.br/dataset/tabua-de-risco-zoneamento-agricola-de-risco-climatico
+    ckan_package_api_url: https://dados.agricultura.gov.br/api/3/action/package_show?id=6d3d141c-885e-41a4-ab7f-dc8ff323b96f
+    resource_id: 139e5a60-1f43-4cc8-aeab-a35dbbf816c0
+    download_url: https://dados.agricultura.gov.br/dataset/6d3d141c-885e-41a4-ab7f-dc8ff323b96f/resource/139e5a60-1f43-4cc8-aeab-a35dbbf816c0/download/dados-abertos-tabua-de-risco-safra-2026-2027.csv
+    season: 2026/2027
+    license: Creative Commons Attribution
+    verified_at: "2026-08-20"
+    domain: agronomic
+    priority: core
+    status: verified
+  inmet_bdmtp:
+    authority: INMET
+    discovery_url: https://portal.inmet.gov.br/dadoshistoricos
+    annual_download_template: https://portal.inmet.gov.br/uploads/dadoshistoricos/{year}.zip
+    format: ZIP containing station CSV files
+    periodicity: annual
+    verified_at: "2026-08-20"
+    domain: climate
+    priority: core
+    status: verified
+  era5_land:
+    authority: Copernicus Climate Data Store
+    discovery_url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+    catalogue_api_url: https://cds.climate.copernicus.eu/api/catalogue/v1/collections/reanalysis-era5-land
+    retrieve_api_url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-land
+    dataset_id: reanalysis-era5-land
+    arco_guide_url: https://confluence.ecmwf.int/plugins/viewsource/viewpagesrc.action?pageId=536218894
+    arco_base_url: https://arco.datastores.ecmwf.int
+    arco_geo_stores:
+      temperature: /cadl-arco-geo-007/arco/reanalysis_era5_land/sfc-2m-temperature/geoChunked.zarr
+      wind: /cadl-arco-geo-008/arco/reanalysis_era5_land/sfc-wind/geoChunked.zarr
+      rain: /cadl-arco-geo-009/arco/reanalysis_era5_land/sfc-pressure-precipitation/geoChunked.zarr
+      radiation: /cadl-arco-geo-010/arco/reanalysis_era5_land/sfc-radiation-heat/geoChunked.zarr
+    arco_accumulation_mode: hourly_increments
+    license: CC-BY-4.0
+    verified_at: "2026-09-25"
+    domain: climate
+    priority: complementary
+    status: verified_authenticated
+  embrapa_geoinfo:
+    authority: EMBRAPA
+    discovery_url: https://geoinfo.dados.embrapa.br/
+    domain: soil
+    priority: enrichment
+    status: adapter_only
+  mapbiomas:
+    authority: MapBiomas Brasil
+    discovery_url: https://brasil.mapbiomas.org/
+    domain: land_use
+    priority: enrichment
+    status: adapter_only

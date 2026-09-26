@@ -1,0 +1,33 @@
+config_version: "1.0.0"
+pipeline_version: "0.1.0"
+paths:
+  bronze: data/bronze
+  silver: data/silver
+  gold: data/gold
+  external: data/external
+  models: models
+  reports: reports/generated
+logging:
+  level: INFO
+  format: json
+quality:
+  fail_on_duplicate_keys: true
+  preserve_rejected_rows: true
+  require_complete_provenance_in_gold: true
+risk:
+  simulations: 10000
+  seed: 20260820
+ingestion:
+  max_concurrent_requests: 3
+climate:
+  start_year: 2017
+  end_year: 2025
+  max_station_distance_km: 250
+  minimum_season_coverage: 0.70
+ml:
+  training_start_year: 2019
+  training_end_year: 2024
+  temporal_test_start_year: 2023
+  geographic_holdout_fraction: 0.20
+  random_seed: 20260820
+  prediction_interval_coverage: 0.80

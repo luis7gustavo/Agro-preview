@@ -1,0 +1,33 @@
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.env
+.cdsapirc
+.idea/
+.vscode/
+.DS_Store
+
+# Artefatos locais e dados baixados. Somente marcadores e contratos entram no Git.
+data/bronze/*
+!data/bronze/.gitkeep
+data/silver/*
+!data/silver/.gitkeep
+data/gold/*
+!data/gold/.gitkeep
+data/external/*
+!data/external/.gitkeep
+models/*
+!models/.gitkeep
+mlruns/
+reports/generated/*
+!reports/generated/.gitkeep
+artifacts/
+
+# QA local do documento de especificacao.
+.qa/
