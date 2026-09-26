@@ -7,6 +7,8 @@ ficam na Release `backup-2026-09-26`, evitando incorporar binários ao históric
 
 - `data/silver`: dados validados e transformados;
 - `data/gold`: tabelas analíticas consumidas pela API, UI e treino;
+- `data/bronze/era5`: 654 recortes horários, estados e metadados necessários
+  para auditar a cadeia de proveniência do complemento climático;
 - `models`: modelo promovido e banco local do MLflow;
 - `mlruns`: artefatos locais dos experimentos;
 - `reports/generated`: relatórios de qualidade e avaliação executados.
@@ -16,14 +18,14 @@ O modelo promovido no snapshot é
 
 ## Conteúdo deliberadamente excluído
 
-- `data/bronze`: 1,5 GiB de arquivos brutos obtidos de fontes públicas;
+- Bronze bruto de INMET, IBGE, MAPA e Conab, reconstruível pelas ingestões;
 - `.venv`, caches e arquivos temporários;
 - `.cdsapirc`, tokens, senhas e outros segredos;
 - arquivos pessoais fora da pasta do projeto.
 
-Bronze pode ser reconstruído pelos comandos de ingestão documentados no README.
-O pacote processado é suficiente para executar a API, Streamlit, auditoria e o
-modelo atual sem baixar novamente todo o histórico bruto.
+O restante do Bronze pode ser reconstruído pelos comandos de ingestão do README.
+O pacote é suficiente para executar API, Streamlit, auditoria climática e o modelo
+atual sem baixar novamente o histórico horário ERA5.
 
 ## Integridade
 

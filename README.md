@@ -91,8 +91,9 @@ Para restaurar o snapshot processado publicado no GitHub depois de clonar:
 powershell -ExecutionPolicy Bypass -File scripts\restore_release_data.ps1
 ```
 
-O pacote da Release inclui Silver, Gold, modelo promovido, MLflow e relatórios
-gerados. Bronze bruto, caches e credenciais não são publicados. Consulte
+O pacote da Release inclui o Bronze de proveniência ERA5, Silver, Gold, modelo
+promovido, MLflow e relatórios gerados. Os demais arquivos brutos, caches e
+credenciais não são publicados. Consulte
 [docs/REINSTALL_WINDOWS.md](docs/REINSTALL_WINDOWS.md) para a reinstalação completa.
 
 ## Comandos disponíveis

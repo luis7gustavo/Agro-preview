@@ -10,7 +10,14 @@ New-Item -ItemType Directory -Path $output -Force | Out-Null
 $archive = Join-Path $output "$BaseName.tar.gz"
 $checksumPath = "$archive.sha256"
 $manifestPath = Join-Path $output "$BaseName.manifest.json"
-$targets = @("data/silver", "data/gold", "models", "reports/generated", "mlruns")
+$targets = @(
+    "data/bronze/era5",
+    "data/silver",
+    "data/gold",
+    "models",
+    "reports/generated",
+    "mlruns"
+)
 
 foreach ($target in $targets) {
     if (-not (Test-Path -LiteralPath (Join-Path $projectRoot $target))) {
@@ -33,7 +40,16 @@ $manifest = [ordered]@{
     created_at_utc = [DateTime]::UtcNow.ToString("o")
     archive = "$BaseName.tar.gz"
     included = $entries
-    excluded = @("data/bronze", "data/external", ".venv", "credentials", "caches")
+    excluded = @(
+        "data/bronze/inmet",
+        "data/bronze/ibge",
+        "data/bronze/mapa",
+        "data/bronze/conab",
+        "data/external",
+        ".venv",
+        "credentials",
+        "caches"
+    )
     promoted_model = $latest.model_version
 }
 $manifest | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $manifestPath -Encoding utf8
